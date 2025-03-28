@@ -1,0 +1,200 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 30% 98%;
+    --foreground: 145 80% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 145 80% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 145 80% 10%;
+
+    --primary: 142 67% 32%;
+    --primary-foreground: 144 100% 97%;
+
+    --secondary: 142 67% 28%;
+    --secondary-foreground: 144 100% 97%;
+
+    --muted: 142 30% 90%;
+    --muted-foreground: 142 10% 40%;
+
+    --accent: 142 30% 90%;
+    --accent-foreground: 142 67% 32%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 142 30% 86%;
+    --input: 142 30% 86%;
+    --ring: 142 67% 28%;
+
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 145 40% 12%;
+    --foreground: 144 100% 97%;
+ 
+    --card: 145 40% 16%;
+    --card-foreground: 144 100% 97%;
+ 
+    --popover: 145 40% 16%;
+    --popover-foreground: 144 100% 97%;
+ 
+    --primary: 142 67% 42%;
+    --primary-foreground: 144 100% 97%;
+ 
+    --secondary: 145 40% 24%;
+    --secondary-foreground: 144 100% 97%;
+ 
+    --muted: 145 40% 24%;
+    --muted-foreground: 144 60% 70%;
+ 
+    --accent: 145 40% 24%;
+    --accent-foreground: 144 100% 97%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 144 100% 97%;
+ 
+    --border: 145 40% 24%;
+    --input: 145 40% 24%;
+    --ring: 142 67% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-medium;
+  }
+}
+
+@layer components {
+  .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .nav-link {
+    @apply px-4 py-2 rounded-md transition-all duration-300 text-white hover:bg-white/10 font-medium;
+  }
+
+  .btn-primary {
+    @apply bg-krishi-primary hover:bg-krishi-dark text-white py-2 px-6 rounded-md transition-all duration-300 font-medium shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-krishi-primary text-krishi-primary hover:bg-krishi-primary hover:text-white py-2 px-6 rounded-md transition-all duration-300 font-medium;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .feature-icon {
+    @apply w-16 h-16 mb-4 text-krishi-primary mx-auto;
+  }
+
+  .equipment-card {
+    @apply relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300;
+  }
+
+  .equipment-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white;
+  }
+
+  /* Chatbot Styles */
+  .chatbot-container {
+    @apply fixed bottom-8 right-8 z-50;
+  }
+  
+  .chatbot-button {
+    @apply w-16 h-16 rounded-full bg-krishi-primary text-white flex items-center justify-center shadow-lg hover:bg-krishi-dark transition-all duration-300 cursor-pointer;
+  }
+  
+  .chatbot-panel {
+    @apply absolute bottom-20 right-0 w-96 h-[480px] bg-white rounded-lg shadow-2xl flex flex-col overflow-hidden border border-krishi-border;
+  }
+  
+  .chatbot-header {
+    @apply bg-krishi-primary text-white p-4 flex justify-between items-center;
+  }
+  
+  .chatbot-messages {
+    @apply flex-1 p-4 overflow-y-auto;
+  }
+  
+  .chatbot-input {
+    @apply p-4 border-t border-krishi-border flex;
+  }
+
+  /* Language Switcher */
+  .language-switcher {
+    @apply relative;
+  }
+  
+  .language-dropdown {
+    @apply absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden z-50;
+  }
+  
+  .language-option {
+    @apply px-4 py-2 hover:bg-krishi-accent cursor-pointer transition-colors duration-200;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b8a4c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #16703e;
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 400ms, transform 400ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
